@@ -1,12 +1,12 @@
-const http = require('http');
+const express = require('express');
 
-const server = http.createServer((req, res) => {
-    console.log('Run request ...');
-    res.setHeader('Content-Type', 'text/html');
-    res.write('<h2>Hello World</h2>');
-    res.end();
+const app = express();
+const port = 8080
+
+app.get('/', (req, res) => {
+    res.send('Hello world')
 })
 
-server.listen(3000, 'localhost', () => {
-    console.log('Server is running in port 3000');
+app.listen(port, () => {
+    console.log(`Server is listenning at http://localhost:${port}`)
 })
