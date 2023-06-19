@@ -8,6 +8,9 @@ import initWebRoute from './route/web';
 var app = express();
 var port = process.env.PORT || 3001;
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 configViewEngine(app);
 
 initWebRoute(app);

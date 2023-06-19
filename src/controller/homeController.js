@@ -22,7 +22,14 @@ let getDetailPage = async (req, res) => {
     return res.send(JSON.stringify(user))
 }
 
+let createNewUser = async (req, res) => {
+    let {firstName, lastName, email, address} = req.body;
+    await pool.execute('INSERT INTO `users`(first_name, last_name, email, address) values (?, ?, ?, ?)', [firstName, lastName, email, address]);
+    return res.send('Hello haha');
+}
+
 module.exports = {
     getHomePage,
-    getDetailPage
+    getDetailPage,
+    createNewUser
 }
