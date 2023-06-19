@@ -25,7 +25,7 @@ let getDetailPage = async (req, res) => {
 let createNewUser = async (req, res) => {
     let {firstName, lastName, email, address} = req.body;
     await pool.execute('INSERT INTO `users`(first_name, last_name, email, address) values (?, ?, ?, ?)', [firstName, lastName, email, address]);
-    return res.send('Hello haha');
+    return res.redirect('/');
 }
 
 module.exports = {
